@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>New Recipe</title>
+    <link rel="stylesheet" href="./src/styles/index.css" />
+  </head>
+  <body>
+    <h1>Add New Recipe</h1>
+    <hr />
+
+    <form>
+      <div>
+        <label for="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Enter recipe title"
+        />
+      </div>
+      <div>
+        <label for="description">Short description</label>
+        <textarea
+          id="description"
+          placeholder="Enter short description"
+        ></textarea>
+      </div>
+      <div>
+        <label for="cooking-time">
+          <img src="./src/icons/timer.svg" alt="" />
+          Cooking time (min)
+        </label>
+        <input type="number" name="cooking-time" id="cooking-time" />
+      </div>
+
+      <h3>
+        <img src="./src/icons/basket.svg" alt="" />
+        Ingredients
+      </h3>
+      <ul>
+        <li>
+          <label for="name-1">Name</label>
+          <input type="text" name="name-1" id="name-1" />
+          <label for="amount-1">Amount</label>
+          <input type="number" name="amount-1" id="amount-1" />
+          <label for="unit-1">Units</label>
+          <select name="unit-1" id="unit-1">
+            <option value="g">g</option>
+            <option value="4">ml</option>
+            <option value="3">tbsp</option>
+            <option value="2">tsp</option>
+            <option value="1">drop</option>
+            <option value="1">pinch</option>
+          </select>
+        </li>
+        <li>
+          <label for="name-1">Name</label>
+          <input type="text" name="name-1" id="name-1" />
+          <label for="amount-1">Amount</label>
+          <input type="number" name="amount-1" id="amount-1" />
+          <label for="unit-1">Units</label>
+          <select name="unit-1" id="unit-1">
+            <option value="g">g</option>
+            <option value="4">ml</option>
+            <option value="3">tbsp</option>
+            <option value="2">tsp</option>
+            <option value="1">drop</option>
+            <option value="1">pinch</option>
+          </select>
+        </li>
+        <li>
+          <label for="name-1">Name</label>
+          <input type="text" name="name-1" id="name-1" />
+          <label for="amount-1">Amount</label>
+          <input type="number" name="amount-1" id="amount-1" />
+          <label for="unit-1">Units</label>
+          <select name="unit-1" id="unit-1">
+            <option value="g">g</option>
+            <option value="4">ml</option>
+            <option value="3">tbsp</option>
+            <option value="2">tsp</option>
+            <option value="1">drop</option>
+            <option value="1">pinch</option>
+          </select>
+        </li>
+      </ul>
+
+      <h3>
+        <img src="./src/icons/list-ordered.svg" alt="" />
+        Instructions
+      </h3>
+      <ol>
+        <li>
+          <input type="text" name="instruction-1" id="instruction-1" />
+        </li>
+        <li>
+          <input type="text" name="instruction-2" id="instruction-2" />
+        </li>
+        <li>
+          <input type="text" name="instruction-3" id="instruction-3" />
+        </li>
+        <li>
+          <input type="text" name="instruction-4" id="instruction-4" />
+        </li>
+        <li>
+          <input type="text" name="instruction-5" id="instruction-5" />
+        </li>
+      </ol>
+
+      <button type="submit">Publish Recipe</button>
+    </form>
+
+    <a href="javascript:history.back()">Go Back</a>
+  </body>
+</html>
