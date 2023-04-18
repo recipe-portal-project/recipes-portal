@@ -5,46 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Profile</title>
     <link rel="stylesheet" href="./src/styles/index.css" />
   </head>
   <body>
-    <div class="navbar">
-      <div>
-        <a href="/index.html">
-          <img
-            src="./src/assets/logo.png"
-            alt="TasteBite logo"
-            id="navbar-logo"
-          />
-        </a>
-      </div>
-      <div>
-        <ul>
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/categories.html">Categories</a></li>
-          <li><a href="/search.html">Search</a></li>
-          <li><a href="/profile.html">Profile</a></li>
-        </ul>
-      </div>
-      <div>
-        <a href="/recipe-new.html"
-          ><img src="./src/icons/add.svg" alt="" />ADD RECIPE</a
-        >
-      </div>
-      <div>
-        <a href="/sign-in.html">
-          <img src="./src/icons/sign-in.svg" alt="" />
-          SIGN IN
-        </a>
-        <button type="button">
-          <img src="./src/icons/sign-out.svg" alt="" />
-          SIGN OUT
-        </button>
+    <div class="container">
+      <div class="navbar">
+        <div>
+          <a href="/index.html">
+            <img
+              src="https://fabrx.co/preview/tastebite/assets/images/brands/brand4.svg"
+              alt="TasteBite logo"
+              id="navbar-logo"
+            />
+          </a>
+        </div>
+        <div>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/categories.html">Categories</a></li>
+            <li><a href="/search.html">Search</a></li>
+            <li><a href="/profile.html">Profile</a></li>
+          </ul>
+        </div>
+        <div class="button-list">
+          <a href="/recipe-new.html">
+            <img src="./src/icons/add.svg" alt="" />
+            <span>ADD RECIPE</span>
+          </a>
+          <a href="/sign-in.html">
+            <img src="./src/icons/sign-in.svg" alt="" />
+            <span>SIGN IN</span>
+          </a>
+          <button type="button" id="sign-out-button">
+            <img src="./src/icons/sign-out.svg" alt="" />
+            <span>SIGN OUT</span>
+          </button>
+          <button type="button" id="toggle-menu-button">
+            <img src="./src/icons/menu.svg" alt="" />
+          </button>
+        </div>
       </div>
     </div>
-
-    <hr />
 
     <h1>Profile</h1>
     <hr />
@@ -116,41 +125,59 @@
       </button>
     </div>
 
-    <hr />
-
     <footer>
-      <div>
-        <img src="./src/assets/logo.png" alt="Tastebite logo" id="logo" />
-        <q>
-          On the other hand, we denounce with righteous indignation and dislike
-          men who are so beguiled and demoralized by the charms of pleasure of
-          the moment
-        </q>
-      </div>
-      <div>
-        <ul>
-          <li>
-            <a href="https://www.instagram.com">
-              <img src="./src/icons/instagram.svg" alt="Instagram TasteBite" />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.facebook.com">
-              <img src="./src/icons/facebook.svg" alt="Facebook TasteBite" />
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com">
-              <img src="./src/icons/twitter.svg" alt="Twitter TasteBite" />
-            </a>
-          </li>
-          <li>
-            <a href="https://youtube.com">
-              <img src="./src/icons/youtube.svg" alt="Youtube TasteBite" />
-            </a>
-          </li>
-        </ul>
+      <div class="container">
+        <div class="content">
+          <div>
+            <img
+              src="https://fabrx.co/preview/tastebite/assets/images/brands/brand4.svg"
+              alt="Tastebite logo"
+              id="footer-logo"
+            />
+            <q>
+              On the other hand, we denounce with righteous indignation and
+              dislike men who are so beguiled and demoralized by the charms of
+              pleasure of the moment
+            </q>
+          </div>
+          <div>
+            <ul>
+              <li>
+                <a href="https://www.instagram.com">
+                  <img
+                    src="./src/icons/instagram.svg"
+                    alt="Instagram TasteBite"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com">
+                  <img
+                    src="./src/icons/facebook.svg"
+                    alt="Facebook TasteBite"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com">
+                  <img src="./src/icons/twitter.svg" alt="Twitter TasteBite" />
+                </a>
+              </li>
+              <li>
+                <a href="https://youtube.com">
+                  <img src="./src/icons/youtube.svg" alt="Youtube TasteBite" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <div class="rights-reserved">
+          © 2020 Tastebite - All rights reserved
+        </div>
       </div>
     </footer>
+
+    <script src="./src/js/toggle-menu.js"></script>
   </body>
 </html>
