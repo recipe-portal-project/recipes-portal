@@ -2,6 +2,12 @@
   font-family: "Inter", sans-serif;
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   margin: 0px;
 }
@@ -121,6 +127,10 @@ ul.recipe-data,
 /* CONTAINER */
 
 /* ------------------------------------------------------- */
+footer {
+  flex-shrink: 0;
+}
+
 footer ul {
   list-style: none;
   display: flex;
@@ -153,6 +163,70 @@ footer .container .content > div {
 footer ul img {
   height: 40px;
   margin-left: 10px;
+}
+
+body:has(.sign-card) {
+  background: #e6f1fe;
+}
+
+form > div:has(button) {
+  display: flex;
+  justify-content: right;
+}
+
+.sign-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
+  padding: 48px;
+  border-radius: 24px;
+  width: 65vw;
+}
+
+.sign-card h4 {
+  margin: 0;
+}
+
+.sign-card-footer,
+#go-back {
+  text-align: center;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.sign-card-footer a {
+  color: #ff642f;
+  text-decoration: none;
+}
+
+.sign-card-footer a:hover {
+  text-decoration: underline;
+}
+
+.sign-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sign-card-header a {
+  margin: auto 0;
+}
+
+#go-back {
+  padding: 6px 12px;
+  border: 1px solid #000;
+  color: #000;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+  border-radius: 6px;
+}
+
+#go-back:hover {
+  color: #fff;
+  background: #000;
 }
 
 .col {
@@ -383,6 +457,53 @@ footer ul img {
   color: #ff642f;
 }
 
+.button-group {
+  display: flex;
+  justify-content: right;
+  padding: 48px 0;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+}
+
+#sign-in-button,
+#sign-up-button {
+  display: block;
+  width: 100%;
+}
+
+.button-group button,
+#sign-in-button,
+#sign-up-button {
+  background: none;
+  border: 1px solid #ff642f;
+  color: #ff642f;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+  transition: 0.2s ease-in-out;
+}
+
+.button-group button {
+  margin-left: 10px;
+}
+
+.button-group button:hover,
+#sign-in-button:hover,
+#sign-up-button:hover {
+  color: #fff;
+  background: #ff642f;
+}
+
 #sign-out-button,
 #toggle-menu-button {
   background: none;
@@ -464,6 +585,53 @@ footer ul img {
   height: 25px;
 }
 
+#profile-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+#sign-in-form {
+  margin: 24px 0;
+}
+
+#sign-up-form {
+  margin-top: 24px;
+}
+
+.user-form img {
+  width: 40px;
+  margin: auto 0;
+}
+
+.user-form > div > div {
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.user-form input {
+  width: 100%;
+  font-size: 14px;
+  line-height: 21px;
+  background: none;
+  border: none;
+  padding: 6px 12px;
+  color: rgb(127, 127, 127);
+}
+
+.user-form > div {
+  margin-bottom: 25px;
+}
+
+.user-form label {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+#profile-form label {
+  color: rgb(127, 127, 127);
+}
+
 @media (min-width: 576px) {
   h5 {
     font-size: 20px;
@@ -477,6 +645,11 @@ footer ul img {
 
   footer .container .content {
     display: flex;
+  }
+
+  .sign-card {
+    width: 400px;
+    margin: 0;
   }
 
   .container {
@@ -514,6 +687,7 @@ footer ul img {
 
   .recipe-card .container-image {
     height: 150px;
+    margin-bottom: 10px;
   }
 
   .categories .container-image {

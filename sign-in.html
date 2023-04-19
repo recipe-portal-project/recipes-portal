@@ -16,39 +16,43 @@
     <link rel="stylesheet" href="./src/styles/index.css" />
   </head>
   <body>
-    <h1>Sign In</h1>
-    <hr />
-
-    <form>
-      <div>
-        <label for="username">Username</label>
-        <div>
-          <img src="./src/icons/username.svg" alt="" />
-          <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="Enter username"
-          />
-        </div>
+    <div class="sign-card">
+      <div class="sign-card-header">
+        <h4>Sign In</h4>
+        <a href="javascript:history.back()" id="go-back">Go Back</a>
       </div>
-      <div>
-        <label for="password">Password</label>
+
+      <form id="sign-in-form" class="user-form">
         <div>
-          <img src="./src/icons/password.svg" alt="" />
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Enter password"
-          />
+          <label for="username">USERNAME</label>
+          <div>
+            <img src="./src/icons/username.svg" alt="" />
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Enter username"
+            />
+          </div>
         </div>
+        <div>
+          <label for="password">PASSWORD</label>
+          <div>
+            <img src="./src/icons/password.svg" alt="" />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter password"
+            />
+          </div>
+        </div>
+        <button type="submit" id="sign-in-button">Sign In</button>
+      </form>
+
+      <div class="sign-card-footer">
+        Don't have an account yet? <a href="/sign-up.html">Sign Up</a>
       </div>
-      <button type="submit">Sign In</button>
-    </form>
-
-    <div>Don't have an account yet? <a href="/sign-up.html">Sign Up</a></div>
-
-    <a href="javascript:history.back()">Go Back</a>
+    </div>
   </body>
 </html>

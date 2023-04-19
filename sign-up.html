@@ -16,61 +16,63 @@
     <link rel="stylesheet" href="./src/styles/index.css" />
   </head>
   <body>
-    <h1>Sign Up</h1>
-    <hr />
+    <div class="sign-card">
+      <div class="sign-card-header">
+        <h4>Sign Up</h4>
+        <a href="javascript:history.back()" id="go-back">Go Back</a>
+      </div>
 
-    <form>
-      <div>
-        <label for="full-name">Full Name</label>
+      <form id="sign-up-form" class="user-form">
         <div>
-          <img src="./src/icons/profile.svg" alt="" />
-          <input
-            type="text"
-            name="full-name"
-            id="full-name"
-            placeholder="Enter full name"
-          />
+          <label for="full-name">FULL NAME</label>
+          <div>
+            <img src="./src/icons/profile.svg" alt="" />
+            <input
+              type="text"
+              name="full-name"
+              id="full-name"
+              placeholder="Enter full name"
+            />
+          </div>
         </div>
-      </div>
-      <div>
-        <label for="email">Email</label>
         <div>
-          <img src="./src/icons/email.svg" alt="" />
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Enter email"
-          />
+          <label for="email">EMAIL</label>
+          <div>
+            <img src="./src/icons/email.svg" alt="" />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter email"
+            />
+          </div>
         </div>
-      </div>
-      <div>
-        <label for="username">Username</label>
         <div>
-          <img src="./src/icons/username.svg" alt="" />
-          <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="Enter username"
-          />
+          <label for="username">USERNAME</label>
+          <div>
+            <img src="./src/icons/username.svg" alt="" />
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Enter username"
+            />
+          </div>
         </div>
-      </div>
-      <div>
-        <label for="password">Password</label>
         <div>
-          <img src="./src/icons/password.svg" alt="" />
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Enter password"
-          />
+          <label for="password">PASSWORD</label>
+          <div>
+            <img src="./src/icons/password.svg" alt="" />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter password"
+            />
+          </div>
         </div>
-      </div>
-      <button type="submit">Sign Up</button>
-    </form>
-
-    <a href="javascript:history.back()">Go Back</a>
+        <button type="submit" id="sign-up-button">Sign Up</button>
+      </form>
+    </div>
   </body>
 </html>
