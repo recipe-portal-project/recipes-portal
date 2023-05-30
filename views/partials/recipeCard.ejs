@@ -1,0 +1,22 @@
+<div class="recipe-card">
+  <a href="/recipes/<%= recipe._id %>">
+    <div class="container-image">
+      <img src="<%= recipe.image.url %>" alt="" />
+    </div>
+    <div class="recipe-card-info">
+      <div>
+        <img src="/icons/timer.svg" alt="Preparation time" />
+        <div><%= generateCookingTime(recipe.cookingTime) %></div>
+      </div>
+      <div>
+        <p
+          class="starability-result"
+          data-rating="<%= calcRating(recipe.comments) %>"
+        >
+          Rated: <%= calcRating(recipe.comments) %> stars
+        </p>
+      </div>
+    </div>
+    <h5><%= recipe.title %></h5>
+  </a>
+</div>

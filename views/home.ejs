@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Home</title>
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/starability-basic.css" />
+  </head>
+  <body>
+    <%- include('partials/navbar')%>
+
+    <div class="container">
+      <section>
+        <div class="best-recipe-card">
+          <div class="col">
+            <img
+              src="<%= recipes[0].image.url %>"
+              alt=""
+              id="best-recipe-image"
+            />
+          </div>
+          <div class="col description">
+            <div class="stats">
+              <img src="/icons/best-rating.svg" alt="" />
+              <div>100% recent recipe</div>
+            </div>
+            <h3><%= recipes[0].title %></h3>
+            <p><%= textOverflow(recipes[0].description, 200) %></p>
+            <div class="view-button">
+              <a href="/recipes/<%= recipes[0]._id %>">
+                <img src="/icons/arrow-right.svg" alt="View latest recipe" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h4>Latest Recipes</h4>
+        <div class="last-recipes">
+          <% for (let i = 1; i < recipes.length; i++) { %>
+            <%-include("./partials/recipeCard", {recipe: recipes[i]}) %> 
+          <% } %>
+        </div>
+      </section>
+    </div>
+
+    <%- include('partials/footer')%>
+  </body>
+</html>

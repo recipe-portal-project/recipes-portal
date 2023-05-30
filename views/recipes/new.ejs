@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>New Recipe</title>
+    <link rel="stylesheet" href="/styles/index.css" />
+  </head>
+  <body>
+    <div class="sign-card">
+      <div class="sign-card-header">
+        <h4>Add New Recipe</h4>
+        <a href="javascript:history.back()" id="go-back">Go Back</a>
+      </div>
+
+      <form id="add-recipe-form" action="/recipes" method="POST" enctype="multipart/form-data">
+        <div>
+          <label for="title">Title</label>
+          <input
+            type="text"
+            name="recipe[title]"
+            id="title"
+            placeholder="Enter recipe title"
+            required
+          />
+        </div>
+        <div>
+          <label for="description">Short description</label>
+          <textarea name="recipe[description]" id="description" required></textarea>
+        </div>
+        <div>
+          <label for="category">Category</label>
+          <select name="recipe[category]" id="category">
+            <% for (let category of categories) { %>
+            <option value="<%=category._id%>"><%= category.name %></option>
+            <% } %>
+          </select>
+        </div>
+        <div>
+          <label for="cookingTime">Cooking time (min) </label>
+          <input
+            type="number"
+            name="recipe[cookingTime]"
+            id="cookingTime"
+            placeholder="Enter cooking time"
+            required
+          />
+        </div>
+
+        <h5>
+          <img src="/icons/basket.svg" alt="" />
+          Ingredients
+        </h5>
+        <ul id="ingredients-list">
+          <li>
+            <%- include("../partials/ingredientInput", {index: 0, units, ingredient: {}}) %>
+          </li>
+        </ul>
+        <div class="recipe-form-button-group">
+          <button type="button" id="delete-ingredient" style="display: none">Delete</button>
+          <button type="button" id="add-ingredient">Add</button>
+        </div>
+
+        <h5>
+          <img src="/icons/list-ordered.svg" alt="" />
+          Instructions
+        </h5>
+        <ol id="instructions-list">
+          <li>
+            <input type="text" name="recipe[instructions][0]" required />
+          </li>
+        </ol>
+        <div class="recipe-form-button-group">
+          <button type="button" id="delete-instruction" style="display: none">Delete</button>
+          <button type="button" id="add-instruction">Add</button>
+        </div>
+
+        <div>
+          <input type="file" name="image" required />
+        </div>
+
+        <button type="submit" id="add-recipe-button">Publish Recipe</button>
+      </form>
+    </div>
+    <script src="/js/recipeForm.js"></script>
+  </body>
+</html>

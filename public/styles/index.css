@@ -53,6 +53,19 @@ footer {
   padding: 48px 0 24px;
 }
 
+input::file-selector-button {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 3px 8px;
+  transition: 0.2s ease-in-out;
+}
+
+input::file-selector-button:hover {
+  background: #000;
+  color: #fff;
+}
+
 /* ------------------------------------------------------------*/
 
 /* REGULARS */
@@ -190,6 +203,10 @@ input[type="checkbox"]:checked {
   border: 7px solid #ff642f;
 }
 
+.d-none {
+  display: none;
+}
+
 .sign-card {
   position: absolute;
   top: 50%;
@@ -207,7 +224,7 @@ input[type="checkbox"]:checked {
 }
 
 .sign-card-footer,
-#go-back {
+#go-back, .recipe-form-button-group button {
   text-align: center;
   font-size: 14px;
   line-height: 18px;
@@ -231,16 +248,18 @@ input[type="checkbox"]:checked {
   margin: auto 0;
 }
 
-#go-back {
+#go-back, .recipe-form-button-group button {
   padding: 6px 12px;
   border: 1px solid #000;
   color: #000;
+  background: #fff;
   text-decoration: none;
   transition: 0.2s ease-in-out;
   border-radius: 6px;
+  margin-left: 5px;
 }
 
-#go-back:hover {
+#go-back:hover, .recipe-form-button-group button:hover {
   color: #fff;
   background: #000;
 }
@@ -516,6 +535,29 @@ input[type="checkbox"]:checked {
   margin: 30px 0;
 }
 
+.comment {
+  overflow-wrap: break-word;
+}
+
+.flash {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  margin: 20px 0px;
+}
+
+.flash-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.flash-error {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
 #add-recipe-form {
   margin-top: 24px;
 }
@@ -570,7 +612,8 @@ input[type="checkbox"]:checked {
   margin-bottom: 5px;
 }
 
-#add-recipe-form ul select {
+#add-recipe-form select {
+  padding: 5px 2px;
   margin-top: 5px;
   border: 1px solid rgb(127, 127, 127);
 }
@@ -596,6 +639,12 @@ input[type="checkbox"]:checked {
   border-bottom: 1px solid rgb(127, 127, 127);
 }
 
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
 #sign-in-button,
 #sign-up-button,
 #add-recipe-button {
@@ -606,7 +655,8 @@ input[type="checkbox"]:checked {
 .button-group button,
 #sign-in-button,
 #sign-up-button,
-#add-recipe-button {
+#add-recipe-button,
+.button-orange {
   background: none;
   border: 1px solid #ff642f;
   color: #ff642f;
@@ -625,7 +675,8 @@ input[type="checkbox"]:checked {
 .button-group button:hover,
 #sign-in-button:hover,
 #sign-up-button:hover,
-#add-recipe-button:hover {
+#add-recipe-button:hover,
+.button-orange:hover {
   color: #fff;
   background: #ff642f;
 }
@@ -758,24 +809,26 @@ input[type="checkbox"]:checked {
 }
 
 #add-comment-form > div {
-  display: flex;
   margin-bottom: 12px;
-}
-
-#add-comment-form > div:nth-of-type(1) label {
-  margin-right: 40px;
-}
-
-#add-comment-form select {
-  padding: 2px;
-}
-
-#add-comment-form > div:nth-of-type(2) label {
-  margin-right: 14px;
 }
 
 #add-comment-form textarea {
   padding: 5px;
+  display: block;
+  border: 1px solid rgb(127, 127, 127);
+}
+
+.recipe-button-group form {
+  display: inline;
+}
+
+.recipe-button-group button {
+  width: 49%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .user-form img {
@@ -795,7 +848,6 @@ input[type="checkbox"]:checked {
   background: none;
   border: none;
   padding: 6px 12px;
-  color: rgb(127, 127, 127);
 }
 
 .user-form > div {
@@ -868,7 +920,7 @@ input[type="checkbox"]:checked {
     margin-bottom: 12px;
   }
 
-  #add-recipe-form ul select {
+  #add-recipe-form select {
     margin-top: 0px;
   }
 }

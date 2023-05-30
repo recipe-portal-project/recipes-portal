@@ -1,0 +1,28 @@
+<label for="name-<%= index %>">Name</label>
+<input
+  type="text"
+  name="recipe[ingredients][<%= index %>][name]"
+  id="name-<%= index %>"
+  placeholder="Name"
+  value="<%= ingredient.name ? ingredient.name : '' %>"
+  required
+/>
+<label for="amount-<%= index %>">Amount</label>
+<input
+  type="number"
+  name="recipe[ingredients][<%= index %>][amount]"
+  id="amount-<%= index %>"
+  placeholder="Amount"
+  value="<%= ingredient.amount ? ingredient.amount : '' %>"
+  required
+/>
+<label for="unit-<%= index %>">Units</label>
+<select name="recipe[ingredients][<%= index %>][unit]" id="unit-<%= index %>">
+  <% for (let unit of units) { %>
+  <option value="<%= unit._id %>"
+    <% if (ingredient?.unit?._id?.equals(unit._id)) { %>
+      selected 
+    <% } %> > 
+    <%= unit.name %></option>
+  <% } %>
+</select>

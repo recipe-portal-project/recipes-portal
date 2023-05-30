@@ -1,0 +1,19 @@
+<div class="header">
+  <div>
+    <b><%= comment.author.fullName %></b>
+    <em><%= generateTimeAgo(comment.createdAt) %></em>
+  </div>
+
+  <% if(comment?.author?.equals(currentUser?._id)) { %>
+  <form
+    action="/recipes/<%= recipe._id %>/comments/<%= comment._id %>?_method=DELETE"
+    method="POST"
+  >
+    <button type="submit" class="button-orange">Delete</button>
+  </form>
+  <% } %>
+</div>
+<p class="starability-result" data-rating="<%= comment.rating %>">
+  Rated: <%= comment.rating %> stars
+</p>
+<div class="comment"><%= comment.body %></div>

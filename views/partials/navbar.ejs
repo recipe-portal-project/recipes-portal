@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="navbar">
+    <div>
+      <a href="/">
+        <img
+          src="https://fabrx.co/preview/tastebite/assets/images/brands/brand4.svg"
+          alt="TasteBite logo"
+          id="navbar-logo"
+        />
+      </a>
+    </div>
+    <div>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/categories">Categories</a></li>
+        <li><a href="/recipes">Search</a></li>
+        <% if (currentUser) { %>
+        <li><a href="/profile">Profile</a></li>
+        <% } %>
+      </ul>
+    </div>
+    <div class="button-list">
+      <a href="/recipes/new">
+        <img src="/icons/add.svg" alt="Add new recipe" />
+      </a>
+      <% if (!currentUser) { %>
+      <a href="/sign-in">
+        <img src="/icons/sign-in.svg" alt="Sign In" />
+      </a>
+      <% } else { %>
+      <a href="/sign-out">
+        <img src="/icons/sign-out.svg" alt="Sign Out" />
+      </a>
+      <% } %>
+      <button type="button" id="toggle-menu-button">
+        <img src="/icons/menu.svg" alt="Menu" />
+      </button>
+    </div>
+  </div>
+</div>
+
+<%- include("./flash") %>

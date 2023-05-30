@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title><%= recipe.title %></title>
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/starability-basic.css" />
+  </head>
+  <body>
+    <%- include('../partials/navbar')%>
+    <div class="container">
+      <section>
+        <% if (recipe?.author?.equals(currentUser?._id)) {%>
+        <div class="recipe-button-group">
+          <form action="/recipes/<%= recipe._id %>/edit">
+            <button type="submit" class="button-orange">Edit</button>
+          </form>
+          <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="button-orange">Delete</button>
+          </form>
+        </div>
+        <% } %>
+
+        <h2><%= recipe.title %></h2>
+
+        <ul class="recipe-data">
+          <li>
+            <img src="/icons/account.svg" alt="Author" />
+            <div><%= recipe.author.fullName %></div>
+          </li>
+          <li class="hide">
+            <img src="/icons/calendar.svg" alt="Publish date" />
+            <div><%= generateTimeAgo(recipe.createdAt) %></div>
+          </li>
+          <li class="hide">
+            <img src="/icons/comment.svg" alt="Comments number" />
+            <div><%= recipe.comments.length %></div>
+          </li>
+          <li>
+            <img src="/icons/timer.svg" alt="Preparation time" />
+            <div class="time">
+              <%= generateCookingTime(recipe.cookingTime) %>
+            </div>
+          </li>
+          <li>
+            <p
+              class="starability-result"
+              data-rating="<%= calcRating(recipe.comments) %>"
+            >
+              Rated: <%= calcRating(recipe.comments) %> stars
+            </p>
+          </li>
+        </ul>
+
+        <p class="recipe-description"><%= recipe.description %></p>
+
+        <img src="<%= recipe.image.url %>" id="recipe-image" />
+      </section>
+
+      <div class="section-wrapper">
+        <section class="recipe-ingredients">
+          <h3>Ingredients</h3>
+          <ul>
+            <% for (let i = 0; i < recipe.ingredients.length; i++) { %>
+            <li>
+              <input type="checkbox" id="ingredient-<%= i %>" />
+              <label for="ingredient-<%= i %>">
+                <%= recipe.ingredients[i].unit.name === 'items' ? `${recipe.ingredients[i].amount} ${recipe.ingredients[i].name}` : `${recipe.ingredients[i].amount}${recipe.ingredients[i].unit.name} ${recipe.ingredients[i].name}` %>
+              </label>
+            </li>
+            <% } %>
+          </ul>
+        </section>
+
+        <section class="recipe-instructions">
+          <h3>Instructions</h3>
+          <ol>
+            <% for (let instruction of recipe.instructions) { %>
+            <li><%= instruction %></li>
+            <% } %>
+          </ol>
+        </section>
+      </div>
+
+      <section class="recipe-comments">
+        <h3>
+          Comments
+          <span
+            ><%= recipe.comments.length ? `(${recipe.comments.length})` : ''
+            %></span
+          >
+        </h3>
+
+        <% if (currentUser) { %> 
+          <% if (!recipe?.author?.equals(currentUser?._id)) {%> 
+          <%-include('../partials/newCommentForm')%> 
+          <% } %> 
+        <% } %> 
+        
+        <% if (!recipe.comments.length) { %>
+        <p>No comments here yet.</p>
+        <% } %>
+
+        <ul>
+          <% for (let comment of recipe.comments) { %>
+          <li><%- include('../partials/comment', {comment})%></li>
+          <% } %>
+        </ul>
+      </section>
+    </div>
+
+    <%- include('../partials/footer')%>
+  </body>
+</html>

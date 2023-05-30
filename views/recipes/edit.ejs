@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>New Recipe</title>
+    <link rel="stylesheet" href="/styles/index.css" />
+  </head>
+  <body>
+    <div class="sign-card">
+      <div class="sign-card-header">
+        <h4>Edit Recipe</h4>
+        <a href="javascript:history.back()" id="go-back">Go Back</a>
+      </div>
+
+      <form
+        id="add-recipe-form"
+        action="/recipes/<%= recipe._id %>?_method=PUT"
+        method="POST"
+      >
+        <div>
+          <label for="title">Title</label>
+          <input
+            type="text"
+            name="recipe[title]"
+            id="title"
+            placeholder="Enter recipe title"
+            value="<%= recipe.title %>"
+          />
+        </div>
+        <div>
+          <label for="description">Short description</label>
+          <textarea name="recipe[description]" id="description">
+<%= recipe.description %></textarea
+          >
+        </div>
+        <div>
+          <label for="category">Category</label>
+          <select name="recipe[category]" id="category">
+            <% for (let category of categories) { %>
+            <option
+              value="<%=category._id%>"
+              <% if (recipe.category._id.equals(category._id)) { %>
+              selected 
+              <% } %> > 
+              <%= category.name %>
+            </option>
+            <% } %>
+          </select>
+        </div>
+        <div>
+          <label for="cookingTime">Cooking time (min) </label>
+          <input
+            type="number"
+            name="recipe[cookingTime]"
+            id="cookingTime"
+            placeholder="Enter cooking time"
+            value="<%= recipe.cookingTime %>"
+          />
+        </div>
+
+        <h5>
+          <img src="/icons/basket.svg" alt="" />
+          Ingredients
+        </h5>
+        <ul id="ingredients-list">
+          <% for (let i = 0; i < recipe.ingredients.length; i++) { %>
+            <li>
+              <%- include("../partials/ingredientInput", {index: i, units, ingredient: recipe.ingredients[i]}) %>
+            </li>
+          <% } %>
+        </ul>
+        <div class="recipe-form-button-group">
+          <button type="button" id="delete-ingredient" <% if (recipe.ingredients.length === 1) { %> style="display: none" <% } %>>Delete</button>
+          <button type="button" id="add-ingredient">Add</button>
+        </div>
+
+        <h5>
+          <img src="/icons/list-ordered.svg" alt="" />
+          Instructions
+        </h5>
+        <ol id="instructions-list">
+          <% for (let i = 0; i < recipe.instructions.length; i++) { %>
+            <li>
+              <input type="text" name="recipe[instructions][<%= i %>]" value="<%= recipe.instructions[i] %>" />
+            </li>
+          <% } %>
+        </ol>
+        <div class="recipe-form-button-group">
+          <button type="button" id="delete-instruction" <% if (recipe.instructions.length === 1) { %> style="display: none" <% } %>>Delete</button>
+          <button type="button" id="add-instruction">Add</button>
+        </div>
+
+        <button type="submit" id="add-recipe-button">Update Recipe</button>
+      </form>
+    </div>
+    <script src="/js/recipeForm.js"></script>
+  </body>
+</html>
