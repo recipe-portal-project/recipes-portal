@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Profile</title>
+    <link rel="stylesheet" href="/styles/index.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="content">
+        <%- include('../partials/navbar')%>
+
+        <div class="container">
+          <section>
+            <h3>Profile</h3>
+
+            <form id="profile-form" class="user-form">
+              <div>
+                <label for="fullName">FULL NAME</label>
+                <div>
+                  <img src="/icons/profile.svg" alt="Profile" />
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    value="<%= currentUser?.fullName %>"
+                    disabled
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="full-name">USERNAME</label>
+                <div>
+                  <img src="/icons/username.svg" alt="Username" />
+                  <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    value="<%= currentUser?.username %>"
+                    disabled
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="full-name">EMAIL</label>
+                <div>
+                  <img src="/icons/email.svg" alt="Email" />
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value="<%= currentUser?.email %>"
+                    disabled
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="full-name">PASSWORD</label>
+                <div>
+                  <img src="/icons/password.svg" alt="Password" />
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    value="password"
+                    disabled
+                  />
+                </div>
+              </div>
+            </form>
+
+            <div class="button-group">
+              <a href="/sign-out">
+                <button>Sign out</button>
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <%- include('../partials/footer')%>
+    </div>
+  </body>
+</html>
