@@ -1,5 +1,7 @@
+<link rel="stylesheet" href="/styles/newCommentForm.css" />
+
 <form
-  id="add-comment-form"
+  class="add-comment-form"
   action="/recipes/<%= recipe._id %>/comments"
   method="POST"
 >
@@ -23,12 +25,24 @@
     <label for="first-rate3" title="Average">3 stars</label>
     <input type="radio" id="first-rate4" name="comment[rating]" value="4" />
     <label for="first-rate4" title="Very good">4 stars</label>
-    <input type="radio" id="first-rate5" name="comment[rating]" value="5" checked />
+    <input
+      type="radio"
+      id="first-rate5"
+      name="comment[rating]"
+      value="5"
+      checked
+    />
     <label for="first-rate5" title="Amazing">5 stars</label>
   </fieldset>
   <div>
     <label for="comment">Comment: </label>
-    <textarea name="comment[body]" id="comment" cols="30" rows="5" required></textarea>
+    <textarea
+      name="comment[body]"
+      id="comment"
+      cols="30"
+      rows="5"
+      required
+    ></textarea>
   </div>
-  <button type="submit" id="add-comment-button">Submit</button>
+  <button type="submit">Submit</button>
 </form>

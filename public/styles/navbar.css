@@ -1,0 +1,103 @@
+.navbar {
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar:has(.toggle-menu) {
+  margin-bottom: 140px;
+}
+
+.navbar > div {
+  margin: auto 0;
+}
+
+.navbar ul {
+  padding: 0;
+  list-style-type: none;
+  position: absolute;
+  display: none;
+}
+
+.navbar .logo {
+  height: 50px;
+}
+
+.navbar .toggle-menu {
+  position: absolute;
+  top: 107px;
+  background: #fff;
+}
+
+.navbar ul a {
+  font-weight: 500;
+  text-decoration: none;
+  color: #000;
+}
+
+.navbar ul a:hover {
+  color: #ff642f;
+}
+
+.navbar ul li {
+  margin: 0px 10px;
+}
+
+.navbar a img,
+.navbar button img {
+  height: 30px;
+}
+
+.navbar > div a span,
+.navbar > div button span {
+  display: none;
+}
+
+.navbar .toggle-menu ul {
+  display: block;
+  margin: 0;
+}
+
+.navbar .toggle-menu ul li {
+  margin-bottom: 10px;
+}
+
+.navbar > div > a {
+  display: inline-block;
+  padding: 5px 6px 1px;
+}
+
+.navbar .button-list a:hover {
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+  transition: 0.2s ease-in-out;
+}
+
+#toggle-menu-button {
+  background: none;
+  border: none;
+  display: inline-block;
+  padding: 5px 6px 1px;
+}
+
+#toggle-menu-button:hover {
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+  transition: 0.2s ease-in-out;
+}
+
+@media (min-width: 992px) {
+  .navbar ul {
+    display: flex;
+    position: relative;
+  }
+
+  .navbar > div a span,
+  .navbar > div button span {
+    display: inline;
+  }
+
+  #toggle-menu-button {
+    display: none;
+  }
+}

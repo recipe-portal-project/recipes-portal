@@ -1,0 +1,108 @@
+.recipe-form {
+  margin-top: 24px;
+}
+
+.recipe-form h5 {
+  display: flex;
+}
+
+.recipe-form img {
+  height: 22px;
+  margin-right: 5px;
+}
+
+.recipe-form > div {
+  margin: 12px 0px;
+}
+
+.recipe-form ol {
+  padding: 0 20px;
+  margin: 0;
+}
+
+.recipe-form ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.recipe-form ul li {
+  margin-bottom: 12px;
+}
+
+.recipe-form ul li * {
+  display: block;
+}
+
+.recipe-form ul label {
+  font-size: 12px;
+  line-height: 18px;
+  padding-right: 5px;
+  margin: auto 0;
+}
+
+.recipe-form ul input {
+  margin-right: 5px;
+}
+
+.recipe-form ol input {
+  margin-bottom: 5px;
+}
+
+.recipe-form select {
+  padding: 5px 2px;
+  margin-top: 5px;
+  border: 1px solid rgb(127, 127, 127);
+}
+
+.recipe-form input::file-selector-button {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 3px 8px;
+  transition: 0.2s ease-in-out;
+}
+
+.recipe-form input::file-selector-button:hover {
+  background: #000;
+  color: #fff;
+}
+
+.recipe-form > div > * {
+  display: block;
+}
+
+.recipe-form > div > input,
+.recipe-form > div > textarea,
+.recipe-form ol input {
+  width: 100%;
+}
+
+.recipe-form > div > label {
+  margin-bottom: 5px;
+}
+
+.recipe-form input,
+.recipe-form textarea {
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid rgb(127, 127, 127);
+}
+
+@media (min-width: 576px) {
+  .recipe-form ul li label {
+    display: block;
+  }
+
+  .recipe-form input::placeholder {
+    color: #fff;
+  }
+
+  .recipe-form ul li {
+    display: flex;
+    margin-bottom: 12px;
+  }
+
+  .recipe-form select {
+    margin-top: 0px;
+  }
+}

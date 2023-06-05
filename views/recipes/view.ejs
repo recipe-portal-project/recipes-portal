@@ -14,6 +14,7 @@
 
     <title><%= recipe.title %></title>
     <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/recipe.css" />
     <link rel="stylesheet" href="/styles/starability-basic.css" />
   </head>
   <body>
@@ -25,7 +26,10 @@
           <form action="/recipes/<%= recipe._id %>/edit">
             <button type="submit" class="button-orange">Edit</button>
           </form>
-          <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+          <form
+            action="/recipes/<%= recipe._id %>?_method=DELETE"
+            method="POST"
+          >
             <button type="submit" class="button-orange">Delete</button>
           </form>
         </div>
@@ -64,7 +68,7 @@
 
         <p class="recipe-description"><%= recipe.description %></p>
 
-        <img src="<%= recipe.image.url %>" id="recipe-image" />
+        <img src="<%= recipe.image.url %>" class="recipe-image" />
       </section>
 
       <div class="section-wrapper">
@@ -75,7 +79,11 @@
             <li>
               <input type="checkbox" id="ingredient-<%= i %>" />
               <label for="ingredient-<%= i %>">
-                <%= recipe.ingredients[i].unit.name === 'items' ? `${recipe.ingredients[i].amount} ${recipe.ingredients[i].name}` : `${recipe.ingredients[i].amount}${recipe.ingredients[i].unit.name} ${recipe.ingredients[i].name}` %>
+                <%= recipe.ingredients[i].unit.name === 'items' ?
+                `${recipe.ingredients[i].amount} ${recipe.ingredients[i].name}`
+                :
+                `${recipe.ingredients[i].amount}${recipe.ingredients[i].unit.name}
+                ${recipe.ingredients[i].name}` %>
               </label>
             </li>
             <% } %>
@@ -101,13 +109,10 @@
           >
         </h3>
 
-        <% if (currentUser) { %> 
-          <% if (!recipe?.author?.equals(currentUser?._id)) {%> 
-          <%-include('../partials/newCommentForm')%> 
-          <% } %> 
-        <% } %> 
-        
-        <% if (!recipe.comments.length) { %>
+        <% if (currentUser) { %> <% if
+        (!recipe?.author?.equals(currentUser?._id)) {%>
+        <%-include('../partials/newCommentForm')%> <% } %> <% } %> <% if
+        (!recipe.comments.length) { %>
         <p>No comments here yet.</p>
         <% } %>
 

@@ -12,8 +12,9 @@
       rel="stylesheet"
     />
 
-    <title>New Recipe</title>
+    <title>Edit Recipe</title>
     <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/recipeForm.css" />
   </head>
   <body>
     <div class="sign-card">
@@ -23,7 +24,7 @@
       </div>
 
       <form
-        id="add-recipe-form"
+        class="recipe-form"
         action="/recipes/<%= recipe._id %>?_method=PUT"
         method="POST"
       >

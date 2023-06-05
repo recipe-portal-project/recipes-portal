@@ -13,6 +13,7 @@
     />
 
     <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/searchForm.css" />
     <link rel="stylesheet" href="/styles/starability-basic.css" />
 
     <title>Recipes</title>
@@ -25,7 +26,7 @@
       <section>
         <h4>Search results <% if (query) { %>for '<%= query %>'<% } %></h4>
 
-        <form id="search-form">
+        <form class="search-form">
           <input
             type="search"
             id="query"
@@ -51,8 +52,8 @@
 
       <% if (page < totalPages) { %>
       <form action="/recipes">
-        <button type="submit" id="load-more-button">Load More</button>
-        <input type="hidden" name="page" value="<%= parseInt(page) + 1 %>" /> 
+        <button type="submit" class="load-more-button">Load More</button>
+        <input type="hidden" name="page" value="<%= parseInt(page) + 1 %>" />
       </form>
       <% } %>
     </div>

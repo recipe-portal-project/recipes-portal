@@ -31,7 +31,7 @@
 
       <% if (page < totalPages) { %>
         <form action="/categories/<%= category.name.replace(" ", "-") %>">
-          <button type="submit" id="load-more-button">Load More</button>
+          <button type="submit" class="load-more-button">Load More</button>
           <input type="hidden" name="page" value="<%= parseInt(page) + 1 %>" /> 
         </form>
       <% } %>

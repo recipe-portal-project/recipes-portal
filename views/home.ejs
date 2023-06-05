@@ -14,6 +14,7 @@
 
     <title>Home</title>
     <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/bestRecipeCard.css" />
     <link rel="stylesheet" href="/styles/starability-basic.css" />
   </head>
   <body>
@@ -23,11 +24,7 @@
       <section>
         <div class="best-recipe-card">
           <div class="col">
-            <img
-              src="<%= recipes[0].image.url %>"
-              alt=""
-              id="best-recipe-image"
-            />
+            <img src="<%= recipes[0].image.url %>" alt="" />
           </div>
           <div class="col description">
             <div class="stats">
@@ -35,7 +32,7 @@
               <div>100% recent recipe</div>
             </div>
             <h3><%= recipes[0].title %></h3>
-            <p><%= textOverflow(recipes[0].description, 200) %></p>
+            <p><%= textOverflow(recipes[0].description, 100) %></p>
             <div class="view-button">
               <a href="/recipes/<%= recipes[0]._id %>">
                 <img src="/icons/arrow-right.svg" alt="View latest recipe" />
@@ -49,8 +46,7 @@
         <h4>Latest Recipes</h4>
         <div class="last-recipes">
           <% for (let i = 1; i < recipes.length; i++) { %>
-            <%-include("./partials/recipeCard", {recipe: recipes[i]}) %> 
-          <% } %>
+          <%-include("./partials/recipeCard", {recipe: recipes[i]}) %> <% } %>
         </div>
       </section>
     </div>

@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipe-comments .header .em {
+  color: rgb(127, 127, 127);
+}
+
+.comment {
+  overflow-wrap: break-word;
+}

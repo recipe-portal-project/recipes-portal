@@ -1,0 +1,27 @@
+.search-form {
+  display: flex;
+  margin: 48px 0;
+}
+
+.search-form input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #000;
+  font-size: 18px;
+  line-height: 27px;
+  padding: 10px 0px;
+}
+
+.search-form button {
+  border: none;
+  background: none;
+  border-bottom: 1px solid #000;
+}
+
+.search-form button:hover {
+  cursor: pointer;
+}
+
+.search-form button img {
+  height: 25px;
+}

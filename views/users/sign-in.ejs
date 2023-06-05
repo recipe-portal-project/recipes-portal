@@ -14,12 +14,15 @@
 
     <title>Sign In</title>
     <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/userForm.css" />
   </head>
   <body>
     <div class="sign-card">
       <div class="sign-card-header">
         <h4>Sign In</h4>
-        <a href="javascript:history.back()" id="go-back">Go Back</a>
+        <a href="javascript:history.back()" class="button-blk text-center"
+          >Go Back</a
+        >
       </div>
 
       <%- include("../partials/flash") %>
@@ -51,10 +54,12 @@
             />
           </div>
         </div>
-        <button type="submit" id="sign-in-button">Sign In</button>
+        <button type="submit" class="button-orange button-block">
+          Sign In
+        </button>
       </form>
 
-      <div class="sign-card-footer">
+      <div class="sign-card-footer text-center">
         Don't have an account yet? <a href="/sign-up">Sign Up</a>
       </div>
     </div>
